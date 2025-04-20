@@ -1,3 +1,8 @@
+# Applied the Streamlit fix so that we verify that it is installed and working
+# !{sys.executable} -m pip install streamlit
+# !{sys.executable} -m streamlit --version
+# !{sys.executable} -m streamlit run smartcartai_app.py
+# Mathew Taylor has confirmed Streamlit is installed and working as expected.
 
 import streamlit as st
 import pandas as pd
