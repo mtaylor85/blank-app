@@ -4,6 +4,7 @@
 # !{sys.executable} -m streamlit run smartcartai_app.py
 # Mathew Taylor has confirmed Streamlit is installed and working as expected.
 
+# Import necessary libraries
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -12,10 +13,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 
-# Title
+# Display the app title
 st.title("SmartCartAI: Product Health & Sustainability Predictor")
 
-# Load data
+# Load dataset with caching to improve performance
 @st.cache_data
 def load_data():
     return pd.read_csv("smartcartai_hypothetical_dataset.csv")
@@ -68,11 +69,11 @@ input_data = pd.DataFrame([{
     'price_per_unit': price_input
 }])
 
-# Make predictions
+# Make predictions using the trained models
 pred_health = rf_health.predict(input_data)[0]
 pred_sustain = rf_sustain.predict(input_data)[0]
 
-# Display predictions
+# Display prediction results to the user
 st.subheader("Predicted Labels")
 st.write(f"**Health Label:** {pred_health}")
 st.write(f"**Sustainability Label:** {pred_sustain}")
